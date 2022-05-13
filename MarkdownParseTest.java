@@ -61,6 +61,32 @@ public class MarkdownParseTest {
         assertEquals(List.of(),
             MarkdownParse.getLinks(Files.readString(Path.of("test-file8.md"))));
     }
+
+
+    //team koala tests
+
+    @Test
+    public void getLinkstestFilePt3FR() throws IOException{
+        Path filepath = Path.of("test-file-koala1.md");
+        String mdFile = Files.readString(filepath);
+        assertEquals(List.of("some-thing.html"), MarkdownParse.getLinks(mdFile));
+    }
+
+    @Test
+    public void getLinkstestFile4FR() throws IOException{
+        Path filepath = Path.of("test-file-koala2.md");
+        String mdFile = Files.readString(filepath);
+        assertEquals(List.of(), MarkdownParse.getLinks(mdFile));
+    }
+
+    @Test
+    public void getLinkstestFileLastLineFR() throws IOException{
+        Path filepath = Path.of("test-file-koala3.md");
+        String mdFile = Files.readString(filepath);
+        assertEquals(List.of("https://www.coolmathgames.com/", "https://twitter.com/?lang=en"), MarkdownParse.getLinks(mdFile));
+    }
+   
+
 }
 
 
