@@ -85,7 +85,20 @@ public class MarkdownParseTest {
         String mdFile = Files.readString(filepath);
         assertEquals(List.of("https://www.coolmathgames.com/", "https://twitter.com/?lang=en"), MarkdownParse.getLinks(mdFile));
     }
-   
+
+    @Test
+    public void getLinksSnippet1() throws IOException{
+        Path filepath = Path.of("testSnippet1.md");
+        String mdFile = Files.readString(filepath);
+        assertEquals(List.of("google.com"), MarkdownParse.getLinks(mdFile));
+    }
+
+    @Test
+    public void getLinksSnippet2() throws IOException{
+        Path filepath = Path.of("testSnippet2.md");
+        String mdFile = Files.readString(filepath);
+        assertEquals(List.of("a.com", "example.com"), MarkdownParse.getLinks(mdFile));
+    }
 
 }
 
